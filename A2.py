@@ -1,59 +1,41 @@
-import requests
-from bs4 import BeautifulSoup
-import pandas as pd
 import streamlit as st
+import pandas as pd
+import matplotlib.pyplot as plt
 
-# Função para raspar as avaliações dos produtos
-def scrape_reviews(product_name):
-    # Substituir espaços por hífens para criar a URL de pesquisa
-    query = product_name.replace(' ', '-')
-    url = f"https://www.sephora.com.br/{query}"
+# Carregar o dataset
+@st.cache
+def load_data():
+    # Substitua 'oscars_dataset.csv' pelo caminho para o seu arquivo CSV
+    df = pd.read_csv('the_oscar_award.csv')
+    return df
 
-    # Fazer a requisição HTTP para a página do produto
-    response = requests.get(url)
-    if response.status_code != 200:
-        st.error("Produto não encontrado ou não há avaliações disponíveis.")
-        return None
+# Carregar os dados
+df = load_data()
 
-    soup = BeautifulSoup(response.content, 'html.parser')
+# Título do aplicativo
+st.title("Visualização de Indicações ao Oscar")
 
-    # Encontrar as avaliações na página
-    reviews_section = soup.find_all('div', class_='bazaarvoice-container')
-    if not reviews_section:
-        st.error("Não foram encontradas avaliações para este produto.")
-        return None
+# Entrada do usuário
+nome = st.text_input("Digite o nome do ator(a), diretor(a), produtor(a):")
 
-    reviews = []
-    for review in reviews_section:
-        try:
-            rating = review.find('span', class_='bv-rating-stars-container').text.strip()
-            title = review.find('h3', class_='bv-content-title').text.strip()
-            content = review.find('div', class_='bv-content-summary-body-text').text.strip()
-            reviews.append({
-                'Título': title,
-                'Avaliação': rating,
-                'Conteúdo': content
-            })
-        except AttributeError:
-            continue
+# Filtrar o dataset pelo nome inserido
+if nome:
+    df_filtrado = df[df['Nome'].str.contains(nome, case=False, na=False)]
+    
+    if not df_filtrado.empty:
+        # Contar o número de indicações por ano
+        indicacoes_por_ano = df_filtrado['Ano'].value_counts().sort_index()
 
-    return pd.DataFrame(reviews)
+        # Criar o gráfico
+        fig, ax = plt.subplots()
+        indicacoes_por_ano.plot(kind='bar', ax=ax)
+        ax.set_title(f'Número de Indicações ao Oscar para {nome}')
+        ax.set_xlabel('Ano')
+        ax.set_ylabel('Número de Indicações')
 
-# Interface do Streamlit
-st.title('Avaliações de Produtos de Maquiagem e Beleza - Sephora Brasil')
-
-product_name = st.text_input('Digite o nome do produto que deseja ver as avaliações:', '')
-
-if st.button('Buscar Avaliações'):
-    if product_name:
-        reviews_df = scrape_reviews(product_name)
-        if reviews_df is not None and not reviews_df.empty:
-            st.subheader(f'Avaliações para "{product_name}"')
-            st.dataframe(reviews_df)
-        else:
-            st.info("Nenhuma avaliação encontrada para o produto especificado.")
+        # Exibir o gráfico no Streamlit
+        st.pyplot(fig)
     else:
-        st.warning("Por favor, insira o nome de um produto.")
-
-# Rodar o código Streamlit no terminal
-# streamlit run nome_do_arquivo.py
+        st.write(f'Nenhuma indicação encontrada para "{nome}".')
+else:
+    st.write("Por favor, insira um nome para buscar.")
