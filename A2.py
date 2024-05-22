@@ -19,11 +19,11 @@ nome_ator = st.text_input("Digite o nome do ator ou atriz:")
 
 # Filtrar o dataset pelo nome inserido
 if nome_ator:
-    df_filtrado = df[df['Cast'].str.contains(nome_ator, case=False, na=False, regex=False)]
+    df_filtrado = df[df['cast'].str.contains(nome_ator, case=False, na=False, regex=False)]
     
     if not df_filtrado.empty:
         st.write(f"Filmes e Séries com {nome_ator}:")
-        st.dataframe(df_filtrado[['Title', 'Cast', 'Type', 'Country', 'Release Year', 'Rating']])
+        st.dataframe(df_filtrado[['title', 'cast', 'type', 'country', 'release_year', 'rating']])
     else:
         st.write(f'Nenhum filme ou série encontrado com "{nome_ator}".')
 else:
