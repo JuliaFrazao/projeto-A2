@@ -4,7 +4,6 @@ import pandas as pd
 # Carregar o dataset
 @st.cache
 def load_data():
-    # Substitua 'netflix_titles.csv' pelo caminho para o seu arquivo CSV
     df = pd.read_csv('NetFlix.csv')
     return df
 
@@ -23,7 +22,7 @@ if nome_ator:
     
     if not df_filtrado.empty:
         st.write(f"Filmes e Séries com {nome_ator}:")
-        st.dataframe(df_filtrado[['title', 'cast', 'type', 'country', 'release_year', 'rating']])
+        st.dataframe(df_filtrado[['Título', 'Elenco', 'Tipo', 'País', 'Ano']])
     else:
         st.write(f'Nenhum filme ou série encontrado com "{nome_ator}".')
 else:
