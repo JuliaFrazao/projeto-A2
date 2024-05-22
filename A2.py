@@ -22,7 +22,7 @@ if nome_ator:
     
     if not df_filtrado.empty:
         st.write(f"Filmes e Séries com {nome_ator}:")
-        st.dataframe(df_filtrado[['title', 'cast', 'type', 'country', 'release year']])
+        st.dataframe(df_filtrado[['title', 'cast', 'type', 'country', 'release_year']])
     else:
         st.write(f'Nenhum filme ou série encontrado com "{nome_ator}".')
 else:
