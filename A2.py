@@ -1,31 +1,30 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 
+# Carregar o dataset
+@st.cache
 def load_data():
-    df = pd.read_csv('the_oscar_award.csv')
+    # Substitua 'netflix_titles.csv' pelo caminho para o seu arquivo CSV
+    df = pd.read_csv('NetFlix.csv')
     return df
 
+# Carregar os dados
 df = load_data()
 
-st.title("Visualização de Indicações ao Oscar")
+# Título do aplicativo
+st.title("Busca de Filmes e Séries da Netflix por Ator/Atriz")
 
-nome = st.text_input("Digite o nome do ator(a), diretor(a), produtor(a):")
+# Entrada do usuário para o nome do ator/atriz
+nome_ator = st.text_input("Digite o nome do ator ou atriz:")
 
-if nome:
-    df_filtrado = df[df['Nome'].str.contains(nome, case=False, na=False)]
+# Filtrar o dataset pelo nome inserido
+if nome_ator:
+    df_filtrado = df[df['Cast'].str.contains(nome_ator, case=False, na=False, regex=False)]
     
     if not df_filtrado.empty:
-        indicacoes_por_ano = df_filtrado['Ano'].value_counts().sort_index()
-
-        fig, ax = plt.subplots()
-        indicacoes_por_ano.plot(kind='bar', ax=ax)
-        ax.set_title(f'Número de Indicações ao Oscar para {nome}')
-        ax.set_xlabel('Ano')
-        ax.set_ylabel('Número de Indicações')
-
-        st.pyplot(fig)
+        st.write(f"Filmes e Séries com {nome_ator}:")
+        st.dataframe(df_filtrado[['Title', 'Cast', 'Type', 'Country', 'Release Year', 'Rating']])
     else:
-        st.write(f'Nenhuma indicação encontrada para "{nome}".')
+        st.write(f'Nenhum filme ou série encontrado com "{nome_ator}".')
 else:
-    st.write("Por favor, insira um nome para buscar.")
+    st.write("Por favor, insira o nome de um ator ou atriz.")
