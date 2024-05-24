@@ -2,4 +2,6 @@ streamlit
 pandas
 seaborn
 matplotlib
-
+numpy
+beautifulsoup4
+streamlit_gsheets-connection
