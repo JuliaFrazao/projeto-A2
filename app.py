@@ -63,14 +63,14 @@ elif search_option == "Diretor/Diretora":
             option = st.selectbox("Escolha uma opção:", ("Orçamento dos filmes", "Estúdio de cinema"))
 
             if option == "Orçamento dos filmes":
-                budgets = director_data[['title', 'budget']].set_index('name')
+                budgets = director_data[['name', 'budget']].set_index('name')
                 st.write("Orçamento dos filmes:")
-                st.bar_chart(budgets)
+                st.table(budgets)
             
             elif option == "Estúdio de cinema":
                 company = director_data['company'].value_counts()
                 st.write("Estúdios de cinema que produziram os filmes:")
-                st.bar_chart(company)
+                st.table(company)
         else:
             st.write("Nenhum filme encontrado para o diretor/diretora especificado.")
 
