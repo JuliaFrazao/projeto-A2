@@ -67,9 +67,9 @@ elif search_option == "Diretor/Diretora":
                 st.table(budgets)
             
             elif option == "Estúdio de cinema":
-                company = director_data[['name,'company']].set_index('name')
+                company = director_data[['name', 'company']].set_index('name')
                 st.write("Estúdios de cinema que produziram os filmes:")
-                st.table(company)
+                st.table(company.reset_index())
         else:
             st.write("Nenhum filme encontrado para o diretor/diretora especificado.")
 
