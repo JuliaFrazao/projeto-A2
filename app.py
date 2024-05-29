@@ -31,7 +31,7 @@ if search_option == "Ator/Atriz":
         
         if not actor_data.empty:
             st.write(f"Filmes com {actor_name}:")
-             st.write(actor_data[['name']].reset_index(drop=True))
+            st.write(actor_data[['name']].reset_index(drop=True))
             
             # Opções para o usuário escolher
             option = st.selectbox("Escolha uma opção:", ("Anos de atuação", "Gêneros de filmes"))
@@ -57,7 +57,7 @@ elif search_option == "Diretor/Diretora":
         
         if not director_data.empty:
             st.write(f"Filmes dirigidos por {director_name}:")
-             st.write(director_data[['name']].reset_index(drop=True))
+            st.write(director_data[['name']].reset_index(drop=True))
             
             # Opções para o usuário escolher
             option = st.selectbox("Escolha uma opção:", ("Orçamento dos filmes", "Estúdio de cinema"))
