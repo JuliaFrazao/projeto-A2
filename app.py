@@ -14,7 +14,7 @@ data = load_data()
 st.sidebar.title("Sobre o Aplicativo")
 st.sidebar.info("""
 O aplicativo tem como objetivo servir como um buscador de informações sobre a indústria cinematográfica americana, 
-contendo 7512 filmes lançados entre 1986 e 2016. Divirta-se!
+contendo 7512 filmes. Divirta-se!
 """)
 
 st.title("Informações sobre Filmes de Hollywood")
