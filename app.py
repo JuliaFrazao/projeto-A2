@@ -18,9 +18,9 @@ O aplicativo tem como objetivo servir como um buscador de informações sobre a 
 contendo 7512 filmes. Divirta-se!
 """)
 
-titulo_col1, titulo_col2 = st.columns([1, 5])
+titulo_col1, titulo_col2 = st.columns([1, 6])
 titulo_col1.title('Informações sobre Filmes de Hollywood')
-titulo_col2.image(image_url, width=90)
+titulo_col2.image(image_url, width=60)
 
 # Entrada do usuário para escolher entre ator/atriz e diretor/diretora
 search_option = st.selectbox("Você quer buscar informações sobre:", ("Ator/Atriz", "Diretor/Diretora"))
