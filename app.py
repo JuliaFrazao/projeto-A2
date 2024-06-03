@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 
+image_url = "emoji.jpg"
+
 # Carregar os dados do CSV
 @st.cache
 def load_data():
@@ -16,7 +18,13 @@ O aplicativo tem como objetivo servir como um buscador de informações sobre a 
 contendo 7512 filmes. Divirta-se!
 """)
 
-st.title("Informações sobre Filmes de Hollywood")
+col1, col2 = st.columns([1, 6])
+
+with col1:
+    st.image(image_url, width=60)
+
+with col2:
+    st.title("Informações sobre Filmes de Hollywood")
 
 # Entrada do usuário para escolher entre ator/atriz e diretor/diretora
 search_option = st.selectbox("Você quer buscar informações sobre:", ("Ator/Atriz", "Diretor/Diretora"))
