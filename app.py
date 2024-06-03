@@ -21,7 +21,7 @@ contendo 7512 filmes. Divirta-se!
 col1, col2 = st.columns([1, 6])
 
 with col1:
-    st.image(image_url, width=60)
+    st.image(image_url, width=90)
 
 with col2:
     st.title("Informações sobre Filmes de Hollywood")
