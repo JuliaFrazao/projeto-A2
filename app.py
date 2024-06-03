@@ -18,15 +18,6 @@ O aplicativo tem como objetivo servir como um buscador de informações sobre a 
 contendo 7512 filmes. Divirta-se!
 """)
 
-st.markdown(
-    """
-    <div style="display: flex; align-items: center;">
-        <h1 style="flex: 1;">Informações sobre Filmes de Hollywood</h1>
-        <img src='emoji.jpg' width='60px'>
-    </div>
-    """, 
-    unsafe_allow_html=True
-)
 titulo_col1, titulo_col2 = st.columns([2, 5])
 titulo_col1.title('Informações sobre Filmes de Hollywood')
 titulo_col2.image(image_url, width=90)
