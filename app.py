@@ -21,7 +21,7 @@ contendo 7512 filmes. Divirta-se!
 page_bg_img = '''
 <style>
 body {
-background-image: url("https://raw.githubusercontent.com/JuliaFrazao/projeto-A2/main/cortina vermelha.jpg");
+background-image: url("cortinavermelha.jpg");
 background-size: cover;
 }
 </style>
