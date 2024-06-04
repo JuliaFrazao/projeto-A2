@@ -18,12 +18,18 @@ O objetivo do aplicativo é servir como um buscador de informações sobre a ind
 contendo 7512 filmes. Divirta-se!
 """)
 
-st. markdown(
-‹style>
-• stApp {
-    background: url('https://raw.githubusercontent.com/JuliaFrazao/projeto-A2/main/cortina vermelha.jpg') no-repeat center center fixed;
-    background-size: cover
-}
+# Aplicar CSS personalizado
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background: url('https://raw.githubusercontent.com/JuliaFrazao/projeto-A2/main/cortina%20vermelha.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 col1, col2 = st.columns([1, 6])
 
