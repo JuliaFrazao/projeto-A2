@@ -21,7 +21,7 @@ contendo 7512 filmes. Divirta-se!
 page_bg_img = '''
 <style>
 body {
-background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fdepositphotos.com%2Fbr%2Fphotos%2Fcortina.html&psig=AOvVaw2b2Q_G9S-xpYhsNrbrN8dC&ust=1717609771835000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCODTh5vBwoYDFQAAAAAdAAAAABAi");
+background-image: url("https://github.com/JuliaFrazao/projeto-A2/blob/main/cortina%20vermelha.jpg");
 background-size: cover;
 }
 </style>
