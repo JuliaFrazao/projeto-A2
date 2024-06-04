@@ -18,16 +18,6 @@ O objetivo do aplicativo é servir como um buscador de informações sobre a ind
 contendo 7512 filmes. Divirta-se!
 """)
 
-page_bg_img = '''
-<style>
-body {
-background-image: url("cortinavermelha.jpg");
-background-size: cover;
-}
-</style>
-'''
-st.markdown(page_bg_img, unsafe_allow_html=True)
-
 col1, col2 = st.columns([1, 6])
 
 with col1:
