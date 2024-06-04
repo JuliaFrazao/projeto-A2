@@ -14,7 +14,7 @@ data = load_data()
 # Adicionar a descrição na barra lateral
 st.sidebar.title("Sobre o Aplicativo")
 st.sidebar.info("""
-O aplicativo tem como objetivo servir como um buscador de informações sobre a indústria cinematográfica americana, 
+O objetivo do aplicativo é servir como um buscador de informações sobre a indústria cinematográfica americana, 
 contendo 7512 filmes. Divirta-se!
 """)
 
