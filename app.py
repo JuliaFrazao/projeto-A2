@@ -26,6 +26,7 @@ background-size: cover;
 }
 </style>
 '''
+st.markdown(page_bg_img, unsafe_allow_html=True)
 
 col1, col2 = st.columns([1, 6])
 
