@@ -18,6 +18,15 @@ O objetivo do aplicativo é servir como um buscador de informações sobre a ind
 contendo 7512 filmes. Divirta-se!
 """)
 
+page_bg_img = '''
+<style>
+body {
+background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fdepositphotos.com%2Fbr%2Fphotos%2Fcortina.html&psig=AOvVaw2b2Q_G9S-xpYhsNrbrN8dC&ust=1717609771835000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCODTh5vBwoYDFQAAAAAdAAAAABAi");
+background-size: cover;
+}
+</style>
+'''
+
 col1, col2 = st.columns([1, 6])
 
 with col1:
