@@ -20,10 +20,10 @@ contendo 7512 filmes. Divirta-se!
 
 st. markdown(
 ‹style>
-• stApp ( background: url('https://raw.githubusercontent.com/JuliaFrazao/projeto-A2/main/cortina vermelha.jpg') no-repeat center center fixed;
-
-background-size: cover
-
+• stApp {
+    background: url('https://raw.githubusercontent.com/JuliaFrazao/projeto-A2/main/cortina vermelha.jpg') no-repeat center center fixed;
+    background-size: cover
+}
 
 col1, col2 = st.columns([1, 6])
 
