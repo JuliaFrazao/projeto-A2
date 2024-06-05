@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import altair as alt
 
 image_url = "emoji.jpg"
 
@@ -57,18 +58,28 @@ if search_option == "Ator/Atriz":
             option = st.selectbox("Escolha uma opção:", ("Anos de atuação", "Gêneros de filmes"))
             
             if option == "Anos de atuação":
-                years = actor_data['year'].value_counts().sort_index()
+                years = actor_data['year'].value_counts().sort_index().reset_index()
+                years.columns = ['year', 'count']
                 st.write("Anos de atuação:")
                 
-                # Criar o gráfico com a cor vermelha
-                st.bar_chart(years, color='red')
+                # Criar o gráfico com a cor vermelha usando Altair
+                chart = alt.Chart(years).mark_bar(color='red').encode(
+                    x='year:O',
+                    y='count:Q'
+                )
+                st.altair_chart(chart, use_container_width=True)
             
             elif option == "Gêneros de filmes":
-                genres = actor_data['genre'].value_counts()
+                genres = actor_data['genre'].value_counts().reset_index()
+                genres.columns = ['genre', 'count']
                 st.write("Gêneros de filmes mais atuados:")
                 
-                # Criar o gráfico com a cor vermelha
-                st.bar_chart(genres, color='red')
+                # Criar o gráfico com a cor vermelha usando Altair
+                chart = alt.Chart(genres).mark_bar(color='red').encode(
+                    x='genre:O',
+                    y='count:Q'
+                )
+                st.altair_chart(chart, use_container_width=True)
         else:
             st.write("Nenhum filme encontrado para o ator/atriz especificado.")
 
@@ -87,11 +98,15 @@ elif search_option == "Diretor/Diretora":
             option = st.selectbox("Escolha uma opção:", ("Orçamento dos filmes", "Estúdio de cinema"))
 
             if option == "Orçamento dos filmes":
-                budgets = director_data[['name', 'budget']].set_index('name')
+                budgets = director_data[['name', 'budget']].set_index('name').reset_index()
                 st.write("Orçamento dos filmes:")
                 
-                # Criar o gráfico de orçamento dos filmes com a cor vermelha
-                st.bar_chart(budgets, color='red')
+                # Criar o gráfico de orçamento dos filmes com a cor vermelha usando Altair
+                chart = alt.Chart(budgets).mark_bar(color='red').encode(
+                    x='name:O',
+                    y='budget:Q'
+                )
+                st.altair_chart(chart, use_container_width=True)
             
             elif option == "Estúdio de cinema":
                 company = director_data[['name', 'company']].set_index('name')
