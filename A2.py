@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 
 image_url = "emoji.jpg"
 
@@ -62,18 +61,14 @@ if search_option == "Ator/Atriz":
                 st.write("Anos de atuação:")
                 
                 # Criar o gráfico com a cor vermelha
-                fig, ax = plt.subplots()
-                years.plot(kind='bar', color='red', ax=ax)
-                st.pyplot(fig)
+                st.bar_chart(years, color='red')
             
             elif option == "Gêneros de filmes":
                 genres = actor_data['genre'].value_counts()
                 st.write("Gêneros de filmes mais atuados:")
                 
                 # Criar o gráfico com a cor vermelha
-                fig, ax = plt.subplots()
-                genres.plot(kind='bar', color='red', ax=ax)
-                st.pyplot(fig)
+                st.bar_chart(genres, color='red')
         else:
             st.write("Nenhum filme encontrado para o ator/atriz especificado.")
 
@@ -96,9 +91,7 @@ elif search_option == "Diretor/Diretora":
                 st.write("Orçamento dos filmes:")
                 
                 # Criar o gráfico de orçamento dos filmes com a cor vermelha
-                fig, ax = plt.subplots()
-                budgets.plot(kind='bar', color='red', ax=ax)
-                st.pyplot(fig)
+                st.bar_chart(budgets, color='red')
             
             elif option == "Estúdio de cinema":
                 company = director_data[['name', 'company']].set_index('name')
@@ -106,4 +99,3 @@ elif search_option == "Diretor/Diretora":
                 st.table(company.reset_index())
         else:
             st.write("Nenhum filme encontrado para o diretor/diretora especificado.")
-
