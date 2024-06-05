@@ -19,6 +19,16 @@ O objetivo do aplicativo é servir como um buscador de informações sobre a ind
 contendo 7512 filmes. Divirta-se!
 """)
 
+st.markdown(
+    """
+    <style>
+    .stSidebar > div:first-child {
+        color: red;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 # Aplicar CSS personalizado
 st.markdown(
     """
@@ -27,8 +37,6 @@ st.markdown(
         background: url('https://raw.githubusercontent.com/JuliaFrazao/projeto-A2/main/cortina%20vermelha.jpg') no-repeat center center fixed;
         background-size: cover;
     }
-    .sidebar .sidebar-content {
-        color: red;
     </style>
     """,
     unsafe_allow_html=True
