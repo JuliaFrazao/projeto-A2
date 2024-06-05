@@ -27,6 +27,8 @@ st.markdown(
         background: url('https://raw.githubusercontent.com/JuliaFrazao/projeto-A2/main/cortina%20vermelha.jpg') no-repeat center center fixed;
         background-size: cover;
     }
+    .sidebar .sidebar-content {
+        color: red; /* Altere esta cor para a cor desejada */
     </style>
     """,
     unsafe_allow_html=True
