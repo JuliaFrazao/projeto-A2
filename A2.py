@@ -12,12 +12,11 @@ def load_data():
 
 data = load_data()
 
-# Adicionar a descrição na barra lateral
+with st.sidebar:
 st.sidebar.title("Sobre o Aplicativo")
-st.sidebar.info("""
-O objetivo do aplicativo é servir como um buscador de informações sobre a indústria cinematográfica americana, 
-contendo 7512 filmes. Divirta-se!
-""")
+st.write('O objetivo do aplicativo é servir como um buscador de informações sobre a indústria cinematográfica americana, 
+contendo 7512 filmes. Divirta-se!')
+st.caption('Criado por Julia Frazão')
 
 st.markdown(
     """
