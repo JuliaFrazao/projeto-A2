@@ -28,7 +28,7 @@ st.markdown(
         background-size: cover;
     }
     .sidebar .sidebar-content {
-        color: red; /* Altere esta cor para a cor desejada */
+        color: red;
     </style>
     """,
     unsafe_allow_html=True
