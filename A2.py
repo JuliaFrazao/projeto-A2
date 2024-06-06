@@ -107,7 +107,7 @@ elif search_option == "Diretor/Diretora":
 
             if option == "Orçamento dos filmes":
                 budgets = director_data[['name', 'budget']].set_index('name').reset_index()
-                st.write("Orçamento dos filmes:")
+                st.write("Orçamento dos filmes em dólares:")
                 
                 # Criar o gráfico de orçamento dos filmes com a cor vermelha usando Altair
                 chart = alt.Chart(budgets).mark_bar(color='red').encode(
