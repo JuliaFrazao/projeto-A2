@@ -14,7 +14,7 @@ data = load_data()
 
 with st.sidebar:
     st.sidebar.title("Sobre o Aplicativo")
-    st.write('O objetivo do aplicativo é servir como um buscador de informações sobre a indústria cinematográfica americana, contendo 7512 filmes. Divirta-se!')
+    st.write('O objetivo do aplicativo é servir como um buscador de informações sobre a indústria cinematográfica americana, contendo 7669 filmes. Divirta-se!')
     st.caption('Criado por Julia Frazão')
 
 # Aplicar imagem de fundo
