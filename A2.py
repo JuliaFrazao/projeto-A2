@@ -17,17 +17,7 @@ with st.sidebar:
     st.write('O objetivo do aplicativo é servir como um buscador de informações sobre a indústria cinematográfica americana, contendo 7512 filmes. Divirta-se!')
     st.caption('Criado por Julia Frazão')
 
-st.markdown(
-    """
-    <style>
-    .stSidebar > div:first-child {
-        color: red;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-# Aplicar CSS personalizado
+# Aplicar imagem de fundo
 st.markdown(
     """
     <style>
@@ -70,7 +60,7 @@ if search_option == "Ator/Atriz":
                 years.columns = ['year', 'count']
                 st.write("Anos de atuação:")
                 
-                # Criar o gráfico com a cor vermelha usando Altair
+                # Criar o gráfico dos anos de atuação
                 chart = alt.Chart(years).mark_bar(color='red').encode(
                     x='year:O',
                     y='count:Q'
@@ -82,7 +72,7 @@ if search_option == "Ator/Atriz":
                 genres.columns = ['genre', 'count']
                 st.write("Gêneros de filmes mais atuados:")
                 
-                # Criar o gráfico com a cor vermelha usando Altair
+                # Criar o gráfico dos gêneros dos filmes
                 chart = alt.Chart(genres).mark_bar(color='red').encode(
                     x='genre:O',
                     y='count:Q'
@@ -109,7 +99,7 @@ elif search_option == "Diretor/Diretora":
                 budgets = director_data[['name', 'budget']].set_index('name').reset_index()
                 st.write("Orçamento dos filmes em dólares:")
                 
-                # Criar o gráfico de orçamento dos filmes com a cor vermelha usando Altair
+                # Criar o gráfico de orçamento dos filmes
                 chart = alt.Chart(budgets).mark_bar(color='red').encode(
                     x='name:O',
                     y='budget:Q'
