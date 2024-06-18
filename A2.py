@@ -16,7 +16,18 @@ with st.sidebar:
     st.sidebar.title("Sobre o Aplicativo")
     st.write('O objetivo do aplicativo é servir como um buscador de informações sobre a indústria cinematográfica americana, contendo 7669 filmes. Divirta-se!')
     st.caption('Criado por Julia Frazão')
-
+    
+st.markdown(
+"""
+<style>
+.stSidebar > div
+{
+color: red;
+}
+</style>
+""",
+unsafe_allow_html=True
+)
 # Aplicar imagem de fundo
 st.markdown(
     """
